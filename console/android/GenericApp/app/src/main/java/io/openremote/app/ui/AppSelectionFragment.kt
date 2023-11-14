@@ -120,6 +120,10 @@ class AppSelectionFragment : Fragment() {
                 binding.appSpinner.visibility = View.VISIBLE
             }
 
+            val selectedPosition = appArrayAdapter.getPosition(getString(R.string.default_app))
+            if(selectedPosition >= 0)
+                binding.appSpinner.setSelection(selectedPosition)
+
             binding.appSpinner.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(
