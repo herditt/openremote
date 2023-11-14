@@ -33,6 +33,11 @@ class SplashActivity : Activity() {
         setContentView(view)
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        sharedPreferences
+            .edit()
+            .putBoolean("privacyPolicyAccepted", true)
+            .apply()
+
         projectItems = sharedPreferences.getString(Constants.PROJECT_LIST, null)?.let {
             jacksonObjectMapper().readValue<List<ProjectItem>>(it).toMutableList()
         } ?: mutableListOf()
