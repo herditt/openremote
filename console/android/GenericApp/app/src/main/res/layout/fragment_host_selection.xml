@@ -94,7 +94,8 @@
                     android:id="@+id/host_input"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@string/default_domain" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
