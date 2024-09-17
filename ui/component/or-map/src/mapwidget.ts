@@ -358,7 +358,7 @@ export class MapWidget {
                 {
                     this._mapGl.addSource('raster-source', {
                         type: 'raster',
-                        url:  location.origin + '/raster/metadata.json'
+                        url:  '/raster/metadata.json'
                     });
 
                     this._mapGl.addLayer({
