@@ -366,7 +366,7 @@ export class MapWidget {
                         'type': 'raster',
                         'source': 'raster-source',
                         'paint': {
-                            'raster-opacity': 0.7  // Adjust this value for transparency
+                            'raster-opacity': 1  // Adjust this value for transparency
                         }
                     });
                 }
