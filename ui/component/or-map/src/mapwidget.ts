@@ -353,6 +353,26 @@ export class MapWidget {
                 this._onMapClick(e.lngLat, true);
             });
 
+            this._mapGl.on("load",() => {
+                if(this._mapGl)
+                {
+                    this._mapGl.addSource('raster-source', {
+                        type: 'raster',
+                        url:  location.origin + '/raster/metadata.json'
+                    });
+
+                    this._mapGl.addLayer({
+                        'id': 'raster-data',
+                        'type': 'raster',
+                        'source': 'raster-source',
+                        'paint': {
+                            'raster-opacity': 0.7  // Adjust this value for transparency
+                        }
+                    });
+                }
+
+            });
+
             if (this._showGeoCodingControl && this._viewSettings && this._viewSettings.geocodeUrl) {
                 this._geocoder = new MaplibreGeocoder({forwardGeocode: this._forwardGeocode.bind(this), reverseGeocode: this._reverseGeocode }, { maplibregl: maplibregl, showResultsWhileTyping: true });
                 // Override the _onKeyDown function from MaplibreGeocoder which has a bug getting the value from the input element
